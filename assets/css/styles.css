@@ -1,0 +1,335 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playwrite+VN:wght@100..400&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  --first-color: #6254b5;
+  --text-color: #cabdff;
+
+  /*========== Font and typography ==========*/
+  --body-font: "Montserrat", sans-serif;
+  --biggest-font-size: 2rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 4rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  background-image: url('/assets/img/Background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: cover;
+  color: white;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+i {
+  font-size: 22px;
+  color: #003cff;
+}
+
+.menu-toggle i,
+.menu-close i {
+  color: white;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+.main-content {
+  overflow: hidden;
+  z-index: 10;
+  /* For animation */
+}
+
+/*=============== HEADER & NAV ===============*/
+.site-header {
+  position: fixed;
+  width: 100%;
+  top: 20px;
+  left: 0;
+  z-index: 10;
+}
+
+.site-nav {
+  position: relative;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo,
+.menu-toggle,
+.menu-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-logo {
+  color: white;
+  column-gap: .5rem;
+  font-weight: var(--font-semi-bold);
+  font-size: 18px;
+}
+
+.site-logo i {
+  font-size: 1.55rem;
+  font-weight: initial;
+  color: white;
+}
+
+.menu-toggle,
+.menu-close {
+  background-color: var(--first-color);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-right: 90px;
+}
+
+.cta {
+  display: flex;
+  padding: 10px 35px;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 25px;
+  color: white;
+  background: #072694;
+  transition: 1s;
+  box-shadow: 6px 6px 0 black;
+  transform: skewX(-15deg);
+}
+
+.cta:focus {
+  outline: none;
+}
+
+.cta:hover {
+  transition: 0.5s;
+  box-shadow: 10px 10px 0 #FBC638;
+}
+
+.cta span:nth-child(2) {
+  transition: 0.5s;
+  margin-right: 0px;
+}
+
+.cta:hover span:nth-child(2) {
+  transition: 0.5s;
+  margin-right: 45px;
+}
+
+span {
+  transform: skewX(15deg);
+}
+
+span i {
+  color: white;
+}
+
+span:nth-child(2) {
+  width: 20px;
+  margin-left: 30px;
+  position: relative;
+  top: 12%;
+}
+
+/**************SVG****************/
+
+path.one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+path.two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.cta:hover path.three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover path.one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover path.two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+
+@keyframes color_anim {
+  0% {
+    fill: white;
+  }
+
+  50% {
+    fill: #FBC638;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 1023px) {
+  .site-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    box-shadow: 0 0 16px hsla(286, 58%, 4%, .2);
+    padding: 6rem 3rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+    transition: right .4s;
+    background-image: url('../img/Background.png');
+  }
+
+  .site-header {
+    background-color: transparent;
+  }
+
+  .social-icons {
+    position: absolute;
+    top: 60%;
+    left: 31%;
+    text-align: center;
+  }
+
+  .shadow-image {
+    width: 30px;
+    right: 2rem;
+  }
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+}
+
+.menu-link {
+  columns: var(--text-color);
+  font-weight: var(--font-semi-bold);
+  transition: color .4s;
+  color: white;
+}
+
+.menu-link:hover {
+  color: #ffcc6c;
+}
+
+.menu-close {
+  position: absolute;
+  top: .75rem;
+  right: 1.5rem;
+}
+
+/* Show menu */
+.show-menu {
+  right: 0;
+}
+
+/*=============== HOME ===============*/
+.home-section {
+  position: relative;
+  height: 100vh;
+}
+
+.home-container {
+  padding-top: 7rem;
+  display: grid;
+  row-gap: 3rem;
+}
+
+.home-content {
+  text-align: center;
+}
+
+.home-content h2 {
+  color: white;
+  margin-top: 3px;
+  font-size: 3.4rem;
+}
+.home-description {
+  line-height: 150%;
+  margin-bottom: 1.25rem;
+  color: #2acffc;
+}
+
+/* ----- SOCIAL ICONS STYLES ----- */
+
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+
+
+/* For taller devices */
+
+
+/* For medium devices */
+
+
+/* For large devices */
